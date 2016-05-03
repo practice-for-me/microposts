@@ -24,8 +24,10 @@ class UsersController < ApplicationController
   
   def update
     if @user.update(user_params)
+      session[:user_id] = @user.id
+      flash[:info] = "プロフィールを変更しました"
       # 保存に成功した場合はトップページへリダイレクト
-      redirect_to user_path , notice: 'プローフィールを編集しました'
+      redirect_to user_path
     else
       # 保存に失敗した場合は編集画面へ戻す
       render 'edit'
