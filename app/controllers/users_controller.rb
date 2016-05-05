@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-<<<<<<< HEAD
   before_action :set_user,only: [:edit, :update]
-=======
-  before_action :set_user,:current_user,:check_user,only: [:edit, :update]
->>>>>>> 43d077a08ca43a99d3fe70f7204c74265206264f
 
   def new
     @user = User.new
