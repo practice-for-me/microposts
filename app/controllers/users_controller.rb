@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user,:current_user,:check_user,only: [:edit, :update]
+  before_action :set_user,only: [:edit, :update]
 
   def new
     @user = User.new
@@ -42,12 +42,6 @@ class UsersController < ApplicationController
   
   def set_user
     @user = User.find(params[:id])
-  end
-  
-  def check_user
-    if current_user != @user
-      session[:user_id] = nil
-      redirect_to root_path
-    end
+    redirect_to root_path if @user != current_user
   end
 end
