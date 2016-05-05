@@ -1,31 +1,5 @@
 <h1>プローフィールの編集</h1>
 
-<%=form_for(@user) do |f| %>
-
-  <%= render 'shared/error_messages', object: f.object %>
-
-  <%= f.label :name %>
-
-  <%= f.text_field :name %>
+<%= render 'layouts/form' %>
 
 
-  <%= f.label :email %>
-
-  <%= f.text_field :email %>
-
-  <%= f.label :password %>
-  
-  <%= f.password_field :password %>
-
-
-  <%= f.label :password_confirmation, "Confirmation"%>
-  
-  <%= f.password_field :password_confirmation %>
-  
-  <%= f.label :live_place %>
-  
-  <%= f.text_field :live_place %>
-  
-  <%= f.submit "Put my account", class: "btn btn-large btn-primary"  %>
-  
-<% end %>
