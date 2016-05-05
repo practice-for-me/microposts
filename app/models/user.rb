@@ -8,5 +8,7 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   validates :live_place,length: { maximum: 20}
-    has_secure_password
+  has_secure_password
+    
+  has_many :microposts  
 end
