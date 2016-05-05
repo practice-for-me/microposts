@@ -44,11 +44,4 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     redirect_to root_path if @user != current_user
   end
-  
-  def check_user
-    if @current_user != @user
-      redirect_to :action => "show", :id => params[:id]
-    end
-  end
-
 end
