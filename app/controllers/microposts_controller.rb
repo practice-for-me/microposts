@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-    before_action :loggend_in_user,only: [:create]
+    before_action :logged_in_user,only: [:create, :destroy]
     
     def create
         #現在のユーザと結びついたフィルタリングされている投稿をインスタンス化
@@ -10,6 +10,14 @@ class MicropostsController < ApplicationController
         else
             render 'static_pages.home'
         end
+    end
+    
+    def destroy
+        @micropost = current_user.microposts.find_by(id: params[:id])
+        return redirect_to root_url if @micropost.nil?
+        @micropost.destroy
+        flash[:success] = "Micropost deleted"
+        redirect_to request.referrer || root_url
     end
     
     private
