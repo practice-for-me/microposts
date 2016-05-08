@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   
   resources :users do 
     member do
-      get 'follower'
-      get 'following'
+      get 'followers'
+      get 'followings'
     end
   end
   

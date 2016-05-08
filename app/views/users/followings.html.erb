@@ -4,7 +4,6 @@
     <div class="panel-heading">フォロー</div>
     <div class="panel-body">
         <% @users.each do |u| %>
-        
             <li>
                 <%= link_to u.name, user_path(u) %>
             </li>
