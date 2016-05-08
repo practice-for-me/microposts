@@ -1,0 +1,8 @@
+<div class="panel panel-default">
+    <div class="panel-heading">フォロワー</div>
+    <div class="panel-body">
+        <% @users.each do |user| %>
+            <%= link_to user.name, user_path(user) %>
+        <% end %>
+    </div>
+</div>
