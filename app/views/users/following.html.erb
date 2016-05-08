@@ -1,0 +1,13 @@
+<h1><%= @user.name %></h1>
+
+<div class="panel panel-default">
+    <div class="panel-heading">フォロー</div>
+    <div class="panel-body">
+        <% @users.each do |u| %>
+        
+            <li>
+                <%= link_to u.name, user_path(u) %>
+            </li>
+        <% end %>
+    </div>
+</div>

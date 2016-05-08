@@ -11,7 +11,7 @@
             </h1>
         </section>
     </aside>
-    <div class="col-md-8">
+    <div class="col-md-4">
         <%= render 'follow_form' if logged_in? %>
         <% if @user.microposts.any? %>
             <h3>Microposts (<%= @user.microposts.count %>)</h3>
@@ -19,5 +19,14 @@
                 <%= render @microposts %>
             </ol>
         <% end %>
+    </div>
+    <div class="col-md-4">
+        <div class="col-sm-6">
+            <%= link_to 'フォロー', following_user_path %>
+        </div>
+        <div class="col-sm-6">
+            <%= link_to 'フォロワー', follower_user_path %>
+        </div>
+       
     </div>
 </div>
