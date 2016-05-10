@@ -1,5 +1,7 @@
 <% if @feed_items.any? %>
     <ol class="microposts">
-        <%= render @feed_items %>
+        <%= @feed_items.each do |f| %>
+            <%= render f %>
+            <%= link_to "リツイート", retweets_micropost_id(f),{confirm: <= "リツイートしますか"} %>
     </ol>
 <% end %>
