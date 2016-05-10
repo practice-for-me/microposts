@@ -1,6 +1,6 @@
 <% if @feed_items.any? %>
     <ol class="microposts">
-        <%= @feed_items.each do |f| %>
+        <% @feed_items.each do |f| %>
             <%= render f %>
             <%= link_to "リツイート", retweets_micropost_path(f), method: :post, data: {:confirm => "本当にリツイートしますか？"}  %>
         <% end %>
