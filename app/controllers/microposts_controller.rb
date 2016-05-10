@@ -22,10 +22,10 @@ class MicropostsController < ApplicationController
     end
     
     def retweets
-        @micropost = micropost.find(params[:id])
-        @new_micropost = current_user.microposts.build(content: "【RT】" + @micropost.content, retweets_id: @micropost.id)
+        @micropost = Micropost.find(params[:id])
+        @new_micropost = current_user.microposts.build(content: "【RT】" + @micropost.content)
         @new_micropost.save!
-        flash[success] = "Retweet success"
+        flash[:success] = "Retweet success"
         redirect_to root_url
     end
     
