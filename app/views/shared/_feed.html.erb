@@ -2,7 +2,9 @@
     <ol class="microposts">
         <% @feed_items.each do |f| %>
             <%= render f %>
-            <%= link_to "リツイート", retweets_micropost_path(f), method: :post, data: {:confirm => "本当にリツイートしますか？"}  %>
+            <% if current_user !=  f.user%>
+                <%= link_to "リツイート", retweets_micropost_path(f), method: :post, data: {:confirm => "本当にリツイートしますか？"}  %>
+            <% end %>
         <% end %>
     </ol>
 <% end %>
